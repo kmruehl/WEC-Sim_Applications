@@ -49,12 +49,12 @@ rhoMult = 1;
 body(1) = bodyClass('hydroData/wavestar.h5');       % Initialize bodyClass
     body(1).mass            = 3.075*rhoMult;                % Define mass [kg]   
     body(1).momOfInertia    = [0 0.001450 0]*rhoMult;       % Moment of Inertia [kg*m^2]     
-    body(1).geometryFile    = 'geometry/Float.stl'; % Geometry File
-    body(1).linearDamping   = [0 0 0 0 1.8 0];      % Linear Viscous Drag Coefficient Determined From Experimetnal Tests
+    body(1).geometryFile    = 'geometry/Float.STL'; % Geometry File
+    body(1).linearDamping(5,5)  = 1.8;      % Linear Viscous Drag Coefficient Determined From Experimetnal Tests
     
 %% Arm - Rotates
 body(2) = bodyClass('');                            % Initialize bodyClass
-    body(2).geometryFile    = 'geometry/Arm.stl';   % Geometry File
+    body(2).geometryFile    = 'geometry/Arm.STL';   % Geometry File
     body(2).nhBody          = 1;                    % Turn non-hydro body on
     body(2).name            = 'Arm';                % Specify body name
     body(2).mass            = 1.157;                % Define mass [kg]   
@@ -65,7 +65,7 @@ body(2) = bodyClass('');                            % Initialize bodyClass
     
 %% Frame - FIXED
 body(3) = bodyClass('');                            % Initialize bodyClass
-    body(3).geometryFile    = 'geometry/Frame.stl'; % Geometry File
+    body(3).geometryFile    = 'geometry/Frame.STL'; % Geometry File
     body(3).nhBody          = 1;                    % Turn non-hydro body on
     body(3).name            = 'Frame';              % Specify body name
     body(3).mass            = 999;                  % Define mass [kg] - FIXED  
@@ -78,7 +78,7 @@ body(3) = bodyClass('');                            % Initialize bodyClass
 
 %% BC Rod - TRANSLATE
 body(4) = bodyClass('');                            % Initialize bodyClass
-    body(4).geometryFile    = 'geometry/BC.stl';    % Geometry File
+    body(4).geometryFile    = 'geometry/BC.STL';    % Geometry File
     body(4).nhBody          = 1;                    % Turn non-hydro body on
     body(4).name            = 'BC';                 % Specify body name
     body(4).mass            = 0.0001;               % Define mass [kg]   
@@ -89,7 +89,7 @@ body(4) = bodyClass('');                            % Initialize bodyClass
     
 %% Motor - ROTATE
 body(5) = bodyClass('');                            % Initialize bodyClass
-    body(5).geometryFile    = 'geometry/Motor.stl'; % Geometry File
+    body(5).geometryFile    = 'geometry/Motor.STL'; % Geometry File
     body(5).nhBody          = 1;                    % Turn non-hydro body on
     body(5).name            = 'Motor';              % Specify body name
     body(5).mass            = 0.0001;               % Define mass [kg]   
@@ -112,11 +112,11 @@ pto(1) = ptoClass('PTO');                           % Initialize ptoClass
 pto(2) = ptoClass('C');               % Initialize constraintClass
     pto(2).loc = [-0.6214398 0 0.3816858];   % Constraint Location [m]
 
-    %% B - Revolute
+%% B - Revolute
 pto(3) = ptoClass('B');               % Initialize constraintClass
     pto(3).loc = [-0.438 0 0.714];          	% Constraint Location [m]  
     
-    %% A - Revolute
+%% A - Revolute
 pto(4) = ptoClass('A');               % Initialize constraintClass
     pto(4).loc = [-0.438 0 0.302];           % Constraint Location [m]
  
