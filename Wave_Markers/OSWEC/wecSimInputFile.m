@@ -35,7 +35,7 @@ waves.T = 8;                            % Wave Period [s]
 marker = 20;
 distance = 10;
 [X,Y] = meshgrid(-marker:distance:marker,-marker:distance:marker);
-waves.marker.loc = [reshape(X,[],1),reshape(Y,[],1)]; % Marker Locations [X,Y]
+waves.marker.location = [reshape(X,[],1),reshape(Y,[],1)]; % Marker Locations [X,Y]
 clear('marker','distance','X','Y')
 waves.marker.style = 2; % 1: Sphere, 2: Cube, 3: Frame.
 waves.marker.size = 10; % Marker Size in Pixels
