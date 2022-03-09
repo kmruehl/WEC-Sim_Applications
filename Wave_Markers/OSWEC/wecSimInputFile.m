@@ -8,7 +8,7 @@ simu.rampTime = 100;                    % Wave Ramp Time [s]
 simu.endTime=400;                       % Simulation End Time [s]        
 simu.solver = 'ode4';                   % simu.solver = 'ode4' for fixed step & simu.solver = 'ode45' for variable step 
 simu.dt = 0.1;                          % Simulation Time-Step [s]
-simu.CITime = 30;                       % Specify CI Time [s]
+simu.cicEndTime = 30;                       % Specify CI Time [s]
 
 %% Wave Information
 
@@ -35,10 +35,10 @@ waves.T = 8;                            % Wave Period [s]
 marker = 20;
 distance = 10;
 [X,Y] = meshgrid(-marker:distance:marker,-marker:distance:marker);
-waves.markerLoc = [reshape(X,[],1),reshape(Y,[],1)]; % Marker Locations [X,Y]
+waves.marker.loc = [reshape(X,[],1),reshape(Y,[],1)]; % Marker Locations [X,Y]
 clear('marker','distance','X','Y')
-waves.markerStyle = 2; % 1: Sphere, 2: Cube, 3: Frame.
-waves.markerSize = 10; % Marker Size in Pixels
+waves.marker.style = 2; % 1: Sphere, 2: Cube, 3: Frame.
+waves.marker.size = 10; % Marker Size in Pixels
 
 
 %% Body Data
